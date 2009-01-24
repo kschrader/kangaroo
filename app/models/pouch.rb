@@ -28,7 +28,7 @@ class Pouch
   end
 
   def to_zip
-    bundle_filename = "#{Merb.root}/pouch/#{self.id}.zip"
+    bundle_filename = "#{Merb.root}/pouch/#{self.name}.zip"
     # check to see if the file exists already
     if File.file?(bundle_filename)
       return File.read(bundle_filename)
