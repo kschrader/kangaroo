@@ -31,8 +31,8 @@ class Pouch
     bundle_filename = "#{Merb.root}/pouch/#{self.name}.zip"
     # check to see if the file exists already
     if File.file?(bundle_filename)
-      return File.read(bundle_filename)
-    end 
+      File.delete(bundle_filename)
+    end
     
     # open or create the zip file
     Zip::ZipFile.open(bundle_filename, Zip::ZipFile::CREATE) {
@@ -42,7 +42,7 @@ class Pouch
       self.uploads.collect {
         |file|
         # add file to archive
-        zipfile.add( "#{file.filename[1..file.filename.length]}", "#{file.filename}")
+        zipfile.add( "#{file.display_filename}", "#{file.filename}")
       }
     }
     

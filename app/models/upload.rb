@@ -24,7 +24,8 @@ class Upload
   end
 
   def display_filename
-    self.filename.gsub(self.class.path(self.pouch.id),'')
+    display_filename = self.filename.gsub(self.class.path(self.pouch.id),'')
+    display_filename[1..display_filename.length]
   end
 
 end
