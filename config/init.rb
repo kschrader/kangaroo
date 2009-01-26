@@ -2,7 +2,6 @@
  
 require 'config/dependencies.rb'
 require 'ftools'
-require 'ruby-debug'
 require 'fileutils'
  
 use_orm :datamapper
